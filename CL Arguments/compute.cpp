@@ -3,8 +3,7 @@
 #include <string.h>
 #include <math.h>
 
-// math pi / deg * 180
-
+// 4 arguments
 float Add(float a, float b)
 {
 	return a + b;
@@ -48,9 +47,51 @@ int Mod(int a, int b)
 	return a / b;
 }
 
+// print 4 arguments to terminal
 void print(float a, float b, float c, char *argv)
 {
 	printf("%.2f %s %.2f = %.2f", a, argv, b, c);
+}
+
+// degree to radian
+float degToRad(float deg)
+{
+	return (deg * M_PI / 180);
+}
+
+// 3 arguments
+float Sin(float a)
+{
+	return sin(degToRad(a));
+}
+
+float Cos(float a)
+{
+	return cos(degToRad(a));
+}
+float Tan(float a)
+{
+	return tan(degToRad(a));
+}
+float Log(float a)
+{
+	return log10(a);
+}
+float Ln(float a)
+{
+	return log(a);
+}
+
+int Factorial(int a)
+{
+	if (a == 0 || a == 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return a * Factorial(a - 1);
+	}
 }
 
 int main(int argc, char **argv)
@@ -100,9 +141,34 @@ int main(int argc, char **argv)
 			printf("Invalid");
 		}
 	}
-	else
+	if (argc == 3)
 	{
-		printf("Invalid Argument");
+		a = atof(argv[2]);
+
+		if (strcmp(argv[1], "sin") == 0)
+		{
+			printf("%s %.1f = %.2f", argv[1], a, Sin(a));
+		}
+		else if (strcmp(argv[1], "cos") == 0)
+		{
+			printf("%s %.1f = %.2f", argv[1], a, Cos(a));
+		}
+		else if (strcmp(argv[1], "cos") == 0)
+		{
+			printf("%s %.1f = %.2f", argv[1], a, Cos(a));
+		}
+		else if (strcmp(argv[1], "tan") == 0)
+		{
+			printf("%s %.1f = %.2f", argv[1], a, Tan(a));
+		}
+		else if (strcmp(argv[1], "log") == 0)
+		{
+			printf("%s %.1f = %.2f", argv[1], a, Log(a));
+		}
+		else if (strcmp(argv[1], "factorial") == 0)
+		{
+			printf("%s %i = %i", argv[1], a, Factorial(a));
+		}
 	}
 
 	return 0;
