@@ -44,7 +44,7 @@ int Div(int a, int b)
 
 int Mod(int a, int b)
 {
-	return a / b;
+	return a % b;
 }
 
 // print 4 arguments to terminal
@@ -165,9 +165,13 @@ int main(int argc, char **argv)
 		{
 			printf("%s %.1f = %.2f", argv[1], a, Log(a));
 		}
+		else if (strcmp(argv[1], "ln") == 0)
+		{
+			printf("%s %.1f = %.2f", argv[1], a, Ln(a));
+		}
 		else if (strcmp(argv[1], "factorial") == 0)
 		{
-			printf("%s %i = %i", argv[1], a, Factorial(a));
+			printf("%s %.f = %i", argv[1], a, Factorial(a));
 		}
 	}
 
