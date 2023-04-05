@@ -21,18 +21,12 @@ float Divided(float a, float b)
 	return a / b;
 }
 
-float Exponent(float a, float b)
+float Power(float a, float b)
 {
-	float total = 1;
-	for (int i = 1; i <= b; i++)
-	{
-		total = total * a;
-	}
-
-	return total;
+	return pow(a, b);
 }
 
-float Akar(float a, float b)
+float Root(float a, float b)
 {
 	return pow(a, 1.0 / b);
 }
@@ -122,11 +116,11 @@ int main(int argc, char **argv)
 		}
 		else if (strcmp(argv[2], "pangkat") == 0)
 		{
-			print(a, b, Exponent(a, b), argv[2]);
+			print(a, b, Power(a, b), argv[2]);
 		}
 		else if (strcmp(argv[2], "akar") == 0)
 		{
-			print(a, b, Akar(a, b), argv[2]);
+			print(a, b, Root(a, b), argv[2]);
 		}
 		else if (strcmp(argv[2], "div") == 0)
 		{
