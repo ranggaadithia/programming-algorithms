@@ -166,11 +166,26 @@ void saveDataToCSV(struct Student students[], int count)
 
 void printStudents(struct Student students[], int count)
 {
-    // Menampilkan data setelah penambahan, pengeditan, dan penghapusan
-    printf("\nStudents Data:\n");
+    // Mengurutkan siswa berdasarkan nilai (grade) dengan Bubble Sort
+    for (int i = 0; i < count - 1; i++)
+    {
+        for (int j = 0; j < count - i - 1; j++)
+        {
+            if (students[j].grade < students[j + 1].grade)
+            {
+                // Tukar posisi siswa jika nilai (grade) lebih kecil
+                struct Student temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+
+    // Menampilkan data setelah pengurutan
+    printf("\nStudents Data (Sorted by Grade):\n");
     for (int i = 0; i < count; i++)
     {
-        printf("Student ID: %s, Name: %s, Grade: %.2f\n",
+        printf("NIM: %s, Name: %s, Grade: %.2f\n",
                students[i].student_id, students[i].name, students[i].grade);
     }
 }
